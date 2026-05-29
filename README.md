@@ -1,1 +1,0 @@
-# laboratory-ip-ryukyu.github.io
