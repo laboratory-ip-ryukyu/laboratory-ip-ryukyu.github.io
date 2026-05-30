@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お知らせ | 社会システム計画学研究室</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="lang-ja">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span data-ja>社会システム計画学研究室</span>
+      <span data-en>Social Systems Planning Lab</span>
+      <small>University of the Ryukyus</small>
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><span data-ja>ホーム</span><span data-en>Home</span></a>
+      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
+      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
+      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
+      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
+      <a href="portal.html"><span data-ja>ポータル</span><span data-en>Portal</span></a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="lang-toggle"><button data-lang="ja" class="active">JP</button><button data-lang="en">EN</button></div>
+      <button class="nav-hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-header-inner">
+    <p class="page-header-tag">News &amp; Updates</p>
+    <h1>
+      <span data-ja>お知らせ</span>
+      <span data-en><em>News</em> &amp; Updates</span>
+    </h1>
+  </div>
+</div>
+
+<section style="background:var(--bg-white);">
+  <div class="section-inner">
+
+    <!-- フィルター -->
+    <div class="pub-filter" style="margin-bottom:2.5rem;">
+      <button class="filter-btn active" data-filter="all">
+        <span data-ja>すべて</span><span data-en>All</span>
+      </button>
+      <button class="filter-btn" data-filter="paper">Paper</button>
+      <button class="filter-btn" data-filter="award">Award</button>
+      <button class="filter-btn" data-filter="event">Event</button>
+      <button class="filter-btn" data-filter="info">Info</button>
+      <button class="filter-btn" data-filter="other">
+        <span data-ja>その他</span><span data-en>Other</span>
+      </button>
+    </div>
+
+    <div class="news-list" id="news-all">
+
+      <div class="news-item" data-type="paper">
+        <div class="news-date">2025 — 03 — 15</div>
+        <div class="news-text">
+          <span class="news-badge badge-paper">Paper</span>
+          <span data-ja>◯◯に関する論文が <em>Journal of ◯◯</em> に採択されました。</span>
+          <span data-en>A paper on ◯◯ was accepted in <em>Journal of ◯◯</em>.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="award">
+        <div class="news-date">2025 — 02 — 20</div>
+        <div class="news-text">
+          <span class="news-badge badge-award">Award</span>
+          <span data-ja>◯◯さんが◯◯学会優秀発表賞を受賞しました。</span>
+          <span data-en>◯◯ received the Best Presentation Award at the ◯◯ Conference.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="event">
+        <div class="news-date">2025 — 01 — 10</div>
+        <div class="news-text">
+          <span class="news-badge badge-event">Event</span>
+          <span data-ja>◯◯国際シンポジウムで招待講演を行いました。</span>
+          <span data-en>An invited talk was given at the ◯◯ International Symposium.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="info">
+        <div class="news-date">2024 — 12 — 01</div>
+        <div class="news-text">
+          <span class="news-badge badge-info">Info</span>
+          <span data-ja>2025年度の研究室配属に関する説明会を開催します。詳細はお問い合わせください。</span>
+          <span data-en>An information session for the 2025 lab assignment will be held. Please contact us for details.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="paper">
+        <div class="news-date">2024 — 10 — 05</div>
+        <div class="news-text">
+          <span class="news-badge badge-paper">Paper</span>
+          <span data-ja>◯◯に関する研究成果を◯◯国際会議で発表しました。</span>
+          <span data-en>Research results on ◯◯ were presented at the ◯◯ International Conference.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="award">
+        <div class="news-date">2024 — 09 — 18</div>
+        <div class="news-text">
+          <span class="news-badge badge-award">Award</span>
+          <span data-ja>◯◯さんが◯◯コンペティションで最優秀賞を受賞しました。</span>
+          <span data-en>◯◯ won the Grand Prize at the ◯◯ Competition.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="event">
+        <div class="news-date">2024 — 07 — 22</div>
+        <div class="news-text">
+          <span class="news-badge badge-event">Event</span>
+          <span data-ja>◯◯大学との合同ゼミを開催しました。</span>
+          <span data-en>A joint seminar with ◯◯ University was held.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="info">
+        <div class="news-date">2024 — 04 — 01</div>
+        <div class="news-text">
+          <span class="news-badge badge-info">Info</span>
+          <span data-ja>新メンバー◯名が研究室に加わりました。</span>
+          <span data-en>◯ new members joined the lab.</span>
+        </div>
+      </div>
+
+      <div class="news-item" data-type="other">
+        <div class="news-date">2024 — 03 — 25</div>
+        <div class="news-text">
+          <span class="news-badge badge-other">Other</span>
+          <span data-ja>◯◯さんが修士論文を優秀論文賞で修了しました。おめでとうございます。</span>
+          <span data-en>◯◯ completed their master's thesis with honors. Congratulations!</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span data-ja>社会システム計画学研究室 © 2025</span><span data-en>Social Systems Planning Lab © 2025</span></div>
+    <div class="footer-links">
+      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
+      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
+      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
+      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
+      <a href="portal.html">Portal</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// News page filter (badge-based)
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#news-all .news-item').forEach(item => {
+      item.style.display = (f === 'all' || item.dataset.type === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
