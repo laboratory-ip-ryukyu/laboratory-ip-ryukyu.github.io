@@ -122,7 +122,7 @@ section { padding: 5rem 0; }
 .badge-paper  { background: var(--navy-light); color: var(--navy); }
 .badge-award  { background: var(--accent-light); color: #7a5a1a; }
 .badge-event  { background: #edf4ee; color: #2d6b3a; }
-.badge-info   { background: #f0f0f0; color: #555; }
+.badge-info   { background: #fde8f0; color: #b0336a; }
 .badge-other  { background: #f4f0f8; color: #5a3d7a; }
 .news-text { font-size: 0.93rem; }
 .news-text a { color: var(--navy-mid); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
