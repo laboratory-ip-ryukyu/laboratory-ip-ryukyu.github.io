@@ -10,6 +10,82 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* ── 記事カード ── */
+    .article-list { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .article-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .article-card-header {
+      padding: 1.6rem 2rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    }
+    .article-date {
+      font-family: var(--font-mono); font-size: 0.8rem;
+      color: var(--text-muted); white-space: nowrap;
+    }
+    .article-title {
+      font-size: 1.05rem; font-weight: 500;
+      color: var(--navy); line-height: 1.4;
+    }
+    .article-body {
+      padding: 1.4rem 2rem;
+    }
+    .article-body p {
+      font-size: 0.92rem; color: var(--text-mid);
+      line-height: 1.9; margin-bottom: 1rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* 画像グリッド */
+    .article-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+    .article-images img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover; border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    /* リンクリスト */
+    .article-links {
+      margin-top: 1.2rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .article-links a {
+      font-size: 0.85rem; color: var(--navy-mid);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s; width: fit-content;
+    }
+    .article-links a:hover { border-color: var(--navy-mid); }
+
+    /* 資料添付 */
+    .article-attachments {
+      margin-top: 1rem;
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .attachment-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.78rem; font-family: var(--font-mono);
+      color: var(--navy-mid); transition: all 0.2s;
+      background: var(--bg);
+    }
+    .attachment-btn:hover { background: var(--navy-light); border-color: var(--navy-mid); }
+
+    /* フィルター */
+    .news-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  </style>
 </head>
 <body class="lang-ja">
 
@@ -20,7 +96,7 @@
       <span data-en>Social Systems Planning Lab</span>
       <small>University of the Ryukyus</small>
     </a>
-        <div class="nav-links">
+    <div class="nav-links">
       <a href="index.html"><span data-ja>ホーム</span><span data-en>Home</span></a>
       <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
       <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
@@ -47,103 +123,131 @@
   </div>
 </div>
 
-<section style="background:var(--bg-white);">
+<section style="background:var(--bg);">
   <div class="section-inner">
 
     <!-- フィルター -->
-    <div class="pub-filter" style="margin-bottom:2.5rem;">
-      <button class="filter-btn active" data-filter="all">
-        <span data-ja>すべて</span><span data-en>All</span>
-      </button>
+    <div class="news-filter">
+      <button class="filter-btn active" data-filter="all"><span data-ja>すべて</span><span data-en>All</span></button>
       <button class="filter-btn" data-filter="paper">Paper</button>
       <button class="filter-btn" data-filter="award">Award</button>
       <button class="filter-btn" data-filter="event">Event</button>
       <button class="filter-btn" data-filter="info">Info</button>
-      <button class="filter-btn" data-filter="other">
-        <span data-ja>その他</span><span data-en>Other</span>
-      </button>
+      <button class="filter-btn" data-filter="other"><span data-ja>その他</span><span data-en>Other</span></button>
     </div>
 
-    <div class="news-list" id="news-all">
+    <div class="article-list" id="article-list">
 
-      <div class="news-item" data-type="paper">
-        <div class="news-date">2025 — 03 — 15</div>
-        <div class="news-text">
-          <span class="news-badge badge-paper">Paper</span>
-          <span data-ja>◯◯に関する論文が <em>Journal of ◯◯</em> に採択されました。</span>
-          <span data-en>A paper on ◯◯ was accepted in <em>Journal of ◯◯</em>.</span>
-        </div>
-      </div>
-
-      <div class="news-item" data-type="award">
-        <div class="news-date">2025 — 02 — 20</div>
-        <div class="news-text">
-          <span class="news-badge badge-award">Award</span>
-          <span data-ja>◯◯さんが◯◯学会優秀発表賞を受賞しました。</span>
-          <span data-en>◯◯ received the Best Presentation Award at the ◯◯ Conference.</span>
-        </div>
-      </div>
-
-      <div class="news-item" data-type="event">
-        <div class="news-date">2025 — 01 — 10</div>
-        <div class="news-text">
+      <!-- ===== 記事テンプレート =====
+      <div class="article-card" data-type="event">
+        <div class="article-card-header">
+          <span class="article-date">2026 — 03 — 10</span>
           <span class="news-badge badge-event">Event</span>
-          <span data-ja>◯◯国際シンポジウムで招待講演を行いました。</span>
-          <span data-en>An invited talk was given at the ◯◯ International Symposium.</span>
+          <span class="article-title">タイトル</span>
+        </div>
+        <div class="article-body">
+          <p>本文テキスト</p>
+          <div class="article-links">
+            <a href="#" target="_blank">リンクテキスト ↗</a>
+          </div>
+          <div class="article-images">
+            <img src="images/news/ファイル名.jpg" alt="説明文" />
+          </div>
+          <div class="article-attachments">
+            <a href="files/資料名.pdf" class="attachment-btn">📄 資料名.pdf</a>
+          </div>
         </div>
       </div>
+      ===== テンプレートここまで ===== -->
 
-      <div class="news-item" data-type="info">
-        <div class="news-date">2024 — 12 — 01</div>
-        <div class="news-text">
-          <span class="news-badge badge-info">Info</span>
-          <span data-ja>2025年度の研究室配属に関する説明会を開催します。詳細はお問い合わせください。</span>
-          <span data-en>An information session for the 2025 lab assignment will be held. Please contact us for details.</span>
-        </div>
-      </div>
-
-      <div class="news-item" data-type="paper">
-        <div class="news-date">2024 — 10 — 05</div>
-        <div class="news-text">
-          <span class="news-badge badge-paper">Paper</span>
-          <span data-ja>◯◯に関する研究成果を◯◯国際会議で発表しました。</span>
-          <span data-en>Research results on ◯◯ were presented at the ◯◯ International Conference.</span>
-        </div>
-      </div>
-
-      <div class="news-item" data-type="award">
-        <div class="news-date">2024 — 09 — 18</div>
-        <div class="news-text">
-          <span class="news-badge badge-award">Award</span>
-          <span data-ja>◯◯さんが◯◯コンペティションで最優秀賞を受賞しました。</span>
-          <span data-en>◯◯ won the Grand Prize at the ◯◯ Competition.</span>
-        </div>
-      </div>
-
-      <div class="news-item" data-type="event">
-        <div class="news-date">2024 — 07 — 22</div>
-        <div class="news-text">
+      <!-- 記事1 -->
+      <div class="article-card" data-type="event">
+        <div class="article-card-header">
+          <span class="article-date">2026 — 03 — 10</span>
           <span class="news-badge badge-event">Event</span>
-          <span data-ja>◯◯大学との合同ゼミを開催しました。</span>
-          <span data-en>A joint seminar with ◯◯ University was held.</span>
+          <span class="article-title">
+            <span data-ja>社会システム計画学分野の3・4年生が沖縄振興開発金融公庫との共同調査内容を発表</span>
+            <span data-en>Students Present Joint Research with Okinawa Development Finance Corporation</span>
+          </span>
+        </div>
+        <div class="article-body">
+          <p>
+            <span data-ja>2026年3月10日（火），沖縄振興開発金融公庫 本店（那覇市おもろまち）にて，「沖縄本島の地域に適した地域交通のリ・デザイン」に関する共同調査の成果発表会が開催されました．新里莉理さん（4年生）・比嘉悠さん（同）・渡慶次諒さん（3年生）・名嘉孝光さん（同）が以下の3部について発表および提言を行いました．</span>
+            <span data-en>On March 10, 2026, a joint research presentation on "Redesigning Local Transportation Suitable for Okinawa Island" was held at the Okinawa Development Finance Corporation headquarters. Students presented proposals in three sections.</span>
+          </p>
+          <p>
+            <span data-ja>第1部：県土軸の形成と那覇都市圏の公共交通リ・デザイン<br>
+            第2部：交通不便・空白地域における公共交通リ・デザイン<br>
+            第3部：誰一人取り残さない公共交通リ・デザイン〜移動制約者に着目して〜</span>
+            <span data-en>Part 1: Formation of the prefectural axis and redesign of public transport in the Naha metropolitan area<br>
+            Part 2: Redesign of public transport in inconvenient/underserved areas<br>
+            Part 3: Leaving no one behind — focusing on those with mobility constraints</span>
+          </p>
+          <div class="article-links">
+            <a href="https://www.u-ryukyu.ac.jp/news/76354/" target="_blank">琉球大学HP：工学部 沖縄振興開発金融公庫との共同研究成果発表会を開催 ↗</a>
+            <a href="https://www.okinawakouko.go.jp/newsrelease/1772612480/" target="_blank">沖縄振興開発金融公庫：共同調査について ↗</a>
+          </div>
         </div>
       </div>
 
-      <div class="news-item" data-type="info">
-        <div class="news-date">2024 — 04 — 01</div>
-        <div class="news-text">
+      <!-- 記事2（サンプル） -->
+      <div class="article-card" data-type="paper">
+        <div class="article-card-header">
+          <span class="article-date">2025 — 03 — 15</span>
+          <span class="news-badge badge-paper">Paper</span>
+          <span class="article-title">
+            <span data-ja>論文が Journal of ◯◯ に採択されました</span>
+            <span data-en>Paper accepted in Journal of ◯◯</span>
+          </span>
+        </div>
+        <div class="article-body">
+          <p>
+            <span data-ja>◯◯に関する論文が <em>Journal of ◯◯</em> に採択されました。詳細は業績ページをご覧ください。</span>
+            <span data-en>A paper on ◯◯ was accepted in <em>Journal of ◯◯</em>. See the Publications page for details.</span>
+          </p>
+          <div class="article-links">
+            <a href="publications.html"><span data-ja>業績ページへ →</span><span data-en>View Publications →</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 記事3（サンプル） -->
+      <div class="article-card" data-type="award">
+        <div class="article-card-header">
+          <span class="article-date">2025 — 02 — 20</span>
+          <span class="news-badge badge-award">Award</span>
+          <span class="article-title">
+            <span data-ja>◯◯さんが◯◯学会優秀発表賞を受賞</span>
+            <span data-en>◯◯ received the Best Presentation Award at ◯◯</span>
+          </span>
+        </div>
+        <div class="article-body">
+          <p>
+            <span data-ja>◯◯さんが◯◯学会 第◯◯回大会において優秀発表賞を受賞しました。おめでとうございます。</span>
+            <span data-en>◯◯ received the Best Presentation Award at the ◯◯ Conference. Congratulations!</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 記事4（サンプル） -->
+      <div class="article-card" data-type="info">
+        <div class="article-card-header">
+          <span class="article-date">2024 — 12 — 01</span>
           <span class="news-badge badge-info">Info</span>
-          <span data-ja>新メンバー◯名が研究室に加わりました。</span>
-          <span data-en>◯ new members joined the lab.</span>
+          <span class="article-title">
+            <span data-ja>2025年度 研究室配属説明会のお知らせ</span>
+            <span data-en>Information Session for 2025 Lab Assignment</span>
+          </span>
         </div>
-      </div>
-
-      <div class="news-item" data-type="other">
-        <div class="news-date">2024 — 03 — 25</div>
-        <div class="news-text">
-          <span class="news-badge badge-other">Other</span>
-          <span data-ja>◯◯さんが修士論文を優秀論文賞で修了しました。おめでとうございます。</span>
-          <span data-en>◯◯ completed their master's thesis with honors. Congratulations!</span>
+        <div class="article-body">
+          <p>
+            <span data-ja>2025年度の研究室配属に関する説明会を下記の通り開催します。配属を希望する学生はぜひご参加ください。</span>
+            <span data-en>An information session for the 2025 lab assignment will be held as follows. Students interested in joining our lab are welcome.</span>
+          </p>
+          <p>
+            <span data-ja>日時：◯◯年◯月◯日（◯）◯◯:◯◯〜<br>場所：◯◯棟 ◯◯号室</span>
+            <span data-en>Date: ◯◯◯◯, ◯◯:◯◯〜<br>Venue: Room ◯◯◯, ◯◯ Building</span>
+          </p>
         </div>
       </div>
 
@@ -154,7 +258,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo"><span data-ja>社会システム計画学研究室 © 2026</span><span data-en>Social Systems Planning Lab © 2026</span></div>
-        <div class="footer-links">
+    <div class="footer-links">
       <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
       <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
       <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
@@ -167,14 +271,14 @@
 
 <script src="js/main.js"></script>
 <script>
-// News page filter (badge-based)
+// お知らせページ専用フィルター
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    document.querySelectorAll('#news-all .news-item').forEach(item => {
-      item.style.display = (f === 'all' || item.dataset.type === f) ? '' : 'none';
+    document.querySelectorAll('#article-list .article-card').forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.type === f) ? '' : 'none';
     });
   });
 });
