@@ -184,7 +184,7 @@ section { padding: 5rem 0; }
 .alumni-table tr:hover td { background: var(--bg); }
 
 /* ── PUBLICATIONS ── */
-.pub-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.pub-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; justify-content: center; }
 .filter-btn {
   padding: 5px 14px; font-family: var(--font-mono); font-size: 0.75rem;
   letter-spacing: 0.05em; border: 1px solid var(--border);
@@ -193,7 +193,7 @@ section { padding: 5rem 0; }
 }
 .filter-btn.active, .filter-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 .pub-list { display: flex; flex-direction: column; gap: 1.4rem; }
-.pub-item { display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem; align-items: start; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.pub-item { display: grid; grid-template-columns: 88px 1fr; gap: 1.5rem; align-items: start; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
 .pub-item.visible { opacity: 1; transform: translateY(0); }
 .pub-year { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); font-weight: 500; padding-top: 2px; }
 .pub-title { font-size: 0.93rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
