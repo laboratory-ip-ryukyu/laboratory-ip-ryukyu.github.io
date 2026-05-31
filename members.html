@@ -215,13 +215,13 @@
     <!-- 卒業・修了生一覧 -->
     <div class="members-section" style="margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border);">
       <div class="members-section-title">
-        <span data-ja>卒業・修了生一覧 — Alumni</span>
+        <span data-ja>卒業生・修了生一覧 — Alumni</span>
         <span data-en>Alumni</span>
       </div>
       <table class="alumni-table">
         <thead>
           <tr>
-            <th><span data-ja>卒業年度</span><span data-en>Year</span></th>
+            <th style="white-space:nowrap;"><span data-ja>卒業年度</span><span data-en>Year</span></th>
             <th><span data-ja>氏名</span><span data-en>Name</span></th>
             <th><span data-ja>論文種別</span><span data-en>Type</span></th>
             <th><span data-ja>論文タイトル</span><span data-en>Thesis Title</span></th>
@@ -566,6 +566,83 @@
         <span data-ja>卒業生・修了生の進路先一覧 — Career Paths</span>
         <span data-en>Career Paths</span>
       </div>
+
+      <style>
+        .career-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .career-card { background: var(--bg-white); border: 1px solid var(--border); border-top: 3px solid var(--accent); padding: 1.4rem 1.6rem; }
+        .career-card-title { font-size: 0.78rem; font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .career-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .career-tag { font-size: 0.8rem; color: var(--text-mid); background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 3px 10px; }
+      </style>
+
+      <div class="career-grid">
+
+        <div class="career-card">
+          <div class="career-card-title">🏛 <span data-ja>官公庁・自治体</span><span data-en>Government &amp; Local Authorities</span></div>
+          <div class="career-tags">
+            <span class="career-tag">山形県庁</span>
+            <span class="career-tag">那覇市役所</span>
+            <span class="career-tag">沖縄県庁</span>
+            <span class="career-tag">浦添市役所</span>
+            <span class="career-tag">茨城県庁</span>
+            <span class="career-tag">長崎市役所</span>
+            <span class="career-tag">消防（岡山県）</span>
+            <span class="career-tag">千葉県庁</span>
+            <span class="career-tag">宮崎県庁</span>
+            <span class="career-tag">沖縄市役所</span>
+            <span class="career-tag">沖縄総合事務局</span>
+            <span class="career-tag">宜野湾市役所</span>
+            <span class="career-tag">長崎県庁</span>
+            <span class="career-tag">ケニア</span>
+          </div>
+        </div>
+
+        <div class="career-card">
+          <div class="career-card-title">🏗 <span data-ja>建設・土木・コンサル</span><span data-en>Construction, Civil Engineering &amp; Consulting</span></div>
+          <div class="career-tags">
+            <span class="career-tag">株式会社安藤・間</span>
+            <span class="career-tag">大和リース</span>
+            <span class="career-tag">NIPPO</span>
+            <span class="career-tag">株式会社エイト日本技術開発</span>
+            <span class="career-tag">間瀬コンサルタント</span>
+            <span class="career-tag">前田建設工業株式会社</span>
+            <span class="career-tag">竹中土木</span>
+            <span class="career-tag">株式会社中央建設コンサルタント</span>
+            <span class="career-tag">株式会社長大</span>
+            <span class="career-tag">大日本コンサルタント株式会社</span>
+            <span class="career-tag">大成建設株式会社</span>
+            <span class="career-tag">アメリカンエンジニアコーポレイション</span>
+            <span class="career-tag">株式会社ニュージェック</span>
+            <span class="career-tag">山田建設株式会社</span>
+            <span class="career-tag">株式会社建設技研インターナショナル</span>
+            <span class="career-tag">オリエンタル白石株式会社</span>
+            <span class="career-tag">株式会社弘洋第一コンサルタンツ</span>
+            <span class="career-tag">株式会社オリエンタルコンサルタンツ</span>
+            <span class="career-tag">株式会社大進</span>
+          </div>
+        </div>
+
+        <div class="career-card">
+          <div class="career-card-title">🎓 <span data-ja>研究・教育機関</span><span data-en>Research &amp; Academic</span></div>
+          <div class="career-tags">
+            <span class="career-tag">国立大学法人 琉球大学</span>
+          </div>
+        </div>
+
+        <div class="career-card">
+          <div class="career-card-title">🏢 <span data-ja>その他企業</span><span data-en>Other Companies</span></div>
+          <div class="career-tags">
+            <span class="career-tag">JR西日本</span>
+            <span class="career-tag">ホーチキ</span>
+            <span class="career-tag">キンレイ</span>
+            <span class="career-tag">トマト銀行</span>
+            <span class="career-tag">パナソニックホームズ株式会社</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
       <p style="font-size:0.88rem;color:var(--text-muted);font-family:var(--font-mono);padding:1.5rem 0;">
         <span data-ja>準備中です。</span><span data-en>Coming soon.</span>
       </p>
