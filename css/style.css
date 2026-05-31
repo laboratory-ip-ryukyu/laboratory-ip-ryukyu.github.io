@@ -171,7 +171,7 @@ section { padding: 5rem 0; }
 .member-affil { font-size: 0.8rem; color: var(--text-mid); }
 
 /* Alumni table */
-.alumni-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.alumni-table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; font-size: 0.88rem; }
 .alumni-table th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); padding: 0.6rem 1rem; border-bottom: 2px solid var(--border); text-align: left; }
 .alumni-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-mid); }
 .alumni-table tr:hover td { background: var(--bg); }
@@ -267,14 +267,6 @@ body.lang-ja [data-ja] { display: inline !important; }
   .pub-item { grid-template-columns: 1fr; }
 }
 
-/* ── 業績タイトル：種別カラー連動 ── */
-.pub-item[data-type="peer-reviewed"] .pub-title { color: var(--navy); }
-.pub-item[data-type="non-peer-reviewed"] .pub-title { color: #2d6b3a; }
-.pub-item[data-type="conference"] .pub-title { color: #7a5a1a; }
-.pub-item[data-type="other"] .pub-title { color: #5a3d7a; }
-
-/* ── お知らせ記事タイトル：バッジカラー連動 ── */
-.article-card[data-type="paper"] .article-title { color: var(--navy); }
 .article-card[data-type="award"] .article-title { color: #7a5a1a; }
 .article-card[data-type="event"] .article-title { color: #2d6b3a; }
 .article-card[data-type="info"] .article-title { color: #b0336a; }
