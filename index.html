@@ -27,13 +27,27 @@
     .hero-inner {
       max-width: var(--max-w); width: 100%; margin: 0 auto;
       padding: 5rem 2rem; position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
     }
+    .hero-text { min-width: 0; }
     .hero-tag { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; font-family: var(--font-mono); }
     .hero-univ { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; letter-spacing: 0.04em; }
     .hero-title { font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
     .hero-title em { font-style: italic; color: rgba(255,255,255,0.55); }
     .hero-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.45); margin-bottom: 2.5rem; max-width: 560px; line-height: 1.75; font-style: italic; }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    /* slideshow */
+    .hero-slideshow { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
+    .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.3s, width 0.3s; border: none; padding: 0; }
+    .hero-dot.active { background: #fff; width: 22px; border-radius: 4px; }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-slideshow { aspect-ratio: 16/9; }
+    }
     /* scroll indicator */
     .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; color: rgba(255,255,255,0.25); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; z-index: 1; }
     .scroll-hint::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent); }
@@ -73,6 +87,7 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
+    <div class="hero-text">
     <p class="hero-tag">Laboratory of Social Systems Planning</p>
     <p class="hero-univ">
       <span data-ja>琉球大学 工学部 工学科 社会基盤デザインコース</span>
@@ -93,6 +108,13 @@
       <a href="#access" class="btn btn-outline-light">
         <span data-ja>お問い合わせ</span><span data-en>Contact Us</span>
       </a>
+    </div>
+    </div>
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="hero-slide active"><img src="images/hero/slide01.jpg" alt="石垣島 川平湾" /></div>
+      <div class="hero-slide"><img src="images/hero/slide02.jpg" alt="やんばるの吊り橋" /></div>
+      <div class="hero-slide"><img src="images/hero/slide03.jpg" alt="海岸の岩場" /></div>
+      <div class="hero-dots" id="heroDots"></div>
     </div>
   </div>
   <div class="scroll-hint">scroll</div>
@@ -254,5 +276,36 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// ── ヒーロースライドショー ──
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsContainer = document.getElementById('heroDots');
+  if (!slides.length || !dotsContainer) return;
+  let current = 0;
+  let timer;
+
+  // ドット生成
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `スライド ${i + 1}`);
+    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll('.hero-dot');
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = idx;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function next() { goTo((current + 1) % slides.length); }
+  function resetTimer() { clearInterval(timer); timer = setInterval(next, 4500); }
+  resetTimer();
+})();
+</script>
 </body>
 </html>
