@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laboratory-ip-ryukyu.github.io/sitemap.xml
