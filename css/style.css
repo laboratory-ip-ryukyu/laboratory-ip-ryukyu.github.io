@@ -175,10 +175,11 @@ section { padding: 5rem 0; }
 .alumni-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; table-layout: fixed; display: table; }
 .alumni-table th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); padding: 0.6rem 1rem; border-bottom: 2px solid var(--border); text-align: left; }
 .alumni-table th:nth-child(1) { width: 90px; white-space: nowrap; }
-.alumni-table th:nth-child(2) { width: 150px; }
+.alumni-table th:nth-child(2) { width: 175px; }
 .alumni-table th:nth-child(3) { width: 90px; }
 .alumni-table th:nth-child(4) { width: auto; }
 .alumni-table td { word-break: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.alumni-table td:nth-child(2) { white-space: normal; word-break: break-word; }
 .alumni-table td:nth-child(3) { white-space: nowrap; }
 .alumni-table td:nth-child(4) { white-space: normal; word-break: break-all; }
 .alumni-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-mid); }
