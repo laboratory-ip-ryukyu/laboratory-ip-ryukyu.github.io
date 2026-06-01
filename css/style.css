@@ -130,7 +130,8 @@ section { padding: 5rem 0; }
 .news-more { margin-top: 1.5rem; }
 
 /* ── RESEARCH ── */
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+.research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); }
+@media (max-width: 700px) { .research-grid { grid-template-columns: 1fr; } }
 .research-card {
   background: var(--bg-white); padding: 2rem 2.2rem;
   transition: box-shadow 0.2s;
