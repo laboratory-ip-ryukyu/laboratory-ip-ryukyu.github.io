@@ -75,9 +75,10 @@
     .message-body p:last-child { margin-bottom: 0; }
     .join-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
     }
+    @media (max-width: 700px) { .join-grid { grid-template-columns: 1fr; } }
     .join-card {
       background: var(--bg-white);
       border: 1px solid var(--border);
@@ -203,24 +204,19 @@
 
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;">
 
-      <!-- カードテンプレート（以下をコピーして追加）
-      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
-        <div style="aspect-ratio:4/3;background:var(--navy-light);overflow:hidden;">
-          <img src="../images/lab/ファイル名.jpg" alt="説明" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div style="padding:1.2rem 1.4rem;">
-          <p style="font-size:0.72rem;font-family:var(--font-mono);color:var(--accent);letter-spacing:0.08em;margin-bottom:0.4rem;">YYYY — MM</p>
-          <p style="font-size:0.88rem;color:var(--text-mid);line-height:1.8;">一言コメント</p>
-        </div>
-      </div>
-      -->
-
-      <!-- 準備中メッセージ -->
+      <!-- 最新の学生生活記事をここに表示（最大5件）。記事が追加されたら反映します。 -->
       <div style="grid-column:1/-1;padding:2rem 0;font-size:0.9rem;color:var(--text-muted);font-family:var(--font-mono);">
-        <span data-ja>写真・コメントは準備中です。</span>
-        <span data-en>Photos and comments coming soon.</span>
+        <span data-ja>現在準備中です。</span>
+        <span data-en>Coming soon.</span>
       </div>
 
+    </div>
+
+    <div style="margin-top:1.8rem;">
+      <a href="student-life.html" class="btn btn-outline-dark btn-sm">
+        <span data-ja>学生生活一覧へ →</span>
+        <span data-en>View all →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -240,52 +236,35 @@
     <div class="join-grid">
       <div class="join-card">
         <h3>
-          <span data-ja>🎯 求める人物像</span>
-          <span data-en>🎯 Who We're Looking For</span>
-        </h3>
-        <ul>
-          <li><span data-ja><!-- 記入してください -->◯◯に興味・関心がある方</span><span data-en>Interest in ◯◯</span></li>
-          <li><span data-ja>自ら課題を発見し，主体的に取り組める方</span><span data-en>Proactive problem-finders</span></li>
-          <li><span data-ja>◯◯◯◯◯◯◯◯</span><span data-en>◯◯◯◯◯◯◯◯</span></li>
-          <li><span data-ja>◯◯◯◯◯◯◯◯</span><span data-en>◯◯◯◯◯◯◯◯</span></li>
-        </ul>
-      </div>
-
-      <div class="join-card">
-        <h3>
           <span data-ja>📚 研究室の特徴</span>
           <span data-en>📚 Lab Features</span>
         </h3>
         <ul>
-          <li><span data-ja><!-- 記入してください -->週◯回のゼミ（全体・個別）</span><span data-en>◯ seminars/week (group &amp; individual)</span></li>
-          <li><span data-ja>国内外の学会発表を積極的にサポート</span><span data-en>Active support for conference presentations</span></li>
-          <li><span data-ja>◯◯◯◯◯◯◯◯</span><span data-en>◯◯◯◯◯◯◯◯</span></li>
-          <li><span data-ja>◯◯◯◯◯◯◯◯</span><span data-en>◯◯◯◯◯◯◯◯</span></li>
+          <li><span data-ja>週1回の進捗報告ゼミ（全員）</span><span data-en>Weekly progress seminars (all members)</span></li>
+          <li><span data-ja>学会発表を積極的にサポート（発表が終われば楽しい打ち上げも？）</span><span data-en>Active support for conference presentations (with a fun celebration afterward!)</span></li>
+          <li><span data-ja>行政・企業・他大学との共同研究あり</span><span data-en>Joint research with government, companies, and other universities</span></li>
         </ul>
       </div>
 
       <div class="join-card">
         <h3>
-          <span data-ja>🗓 配属・見学について</span>
-          <span data-en>🗓 How to Join</span>
+          <span data-ja>💬 Q &amp; A</span>
+          <span data-en>💬 Q &amp; A</span>
         </h3>
+        <p style="margin-bottom:1rem;">
+          <span data-ja><strong>Q. 研究テーマの決め方</strong><br>A. 教員と相談の上，学生の皆さんの興味関心に合わせて設定していきます．</span>
+          <span data-en><strong>Q. How are research themes decided?</strong><br>A. Themes are set based on each student's interests, in consultation with faculty.</span>
+        </p>
         <p>
-          <span data-ja>
-            <!-- 記入してください -->
-            研究室見学は随時受け付けています。<br>
-            まずはメールにてご連絡ください。
-          </span>
-          <span data-en>
-            Lab visits are welcome anytime.<br>
-            Please contact us by email first.
-          </span>
+          <span data-ja><strong>Q. プログラミング初心者でも大丈夫ですか？</strong><br>A. 配属後に一から始める学生がほとんどなので問題ありません．</span>
+          <span data-en><strong>Q. Is it okay if I'm a programming beginner?</strong><br>A. No problem — most students start from scratch after joining.</span>
         </p>
       </div>
     </div>
 
     <div class="join-cta">
       <div>
-        <strong><span data-ja>お気軽にお問い合わせください</span><span data-en>Feel free to contact us</span></strong>
+        <strong><span data-ja>配属・見学について　お気軽にお問い合わせください</span><span data-en>Contact us anytime about joining or visiting the lab</span></strong>
         <p><span data-ja>見学・質問はいつでも歓迎しています。</span><span data-en>Lab visits and questions are always welcome.</span></p>
       </div>
       <a href="index.html#access" class="btn btn-outline-light">
