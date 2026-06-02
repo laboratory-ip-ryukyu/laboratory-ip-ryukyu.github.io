@@ -197,6 +197,9 @@ section { padding: 5rem 0; }
 .pub-item.visible { opacity: 1; transform: translateY(0); }
 .pub-year { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); font-weight: 500; padding-top: 2px; }
 .pub-title { font-size: 0.93rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
+.pub-tag { display: inline-block; font-size: 0.68rem; font-family: var(--font-mono); letter-spacing: 0.05em; padding: 1px 8px; border-radius: 3px; margin-right: 0.5rem; vertical-align: 1px; }
+.pub-tag.award { background: var(--accent-light); color: #7a5a1a; border: 1px solid #e8d08a; }
+.pub-tag.book { background: var(--navy-light); color: var(--navy); border: 1px solid #b8d0e8; }
 .pub-authors { font-size: 0.83rem; color: var(--text-mid); margin-bottom: 0.25rem; }
 .pub-venue { font-size: 0.8rem; color: var(--text-muted); }
 .pub-links { display: flex; gap: 0.8rem; margin-top: 0.4rem; }
