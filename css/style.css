@@ -181,6 +181,10 @@ section { padding: 5rem 0; }
 .alumni-table td:nth-child(2) { white-space: nowrap; }
 .alumni-table td:nth-child(3) { white-space: normal; word-break: break-word; }
 .alumni-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-mid); }
+.alumni-table .thesis-type { font-weight: 500; }
+.alumni-table .thesis-type-undergraduate { color: var(--accent); }
+.alumni-table .thesis-type-master { color: var(--navy-mid); }
+.alumni-table .thesis-type-doctoral { color: #a64242; }
 .alumni-table tr:hover td { background: var(--bg); }
 
 /* ── PUBLICATIONS ── */
