@@ -1,349 +1,51 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="KcrFSB6cH9oSJOEGwliKE3jS2wqEeajN2zLE-L2whGw" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>琉球大学 社会システム計画学研究室</title>
-  <meta name="description" content="琉球大学 工学部 工学科 社会基盤デザインコース 社会システム計画学研究室" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="0; url=https://planning.skr.u-ryukyu.ac.jp/" />
+  <title>研究室ホームページ移転のお知らせ</title>
+  <link rel="canonical" href="https://planning.skr.u-ryukyu.ac.jp/" />
   <style>
-    /* ── HERO (home only) ── */
-    #hero {
-      min-height: 100vh; padding-top: var(--nav-h);
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
+      color: #1f2933;
+      background: #f7f8fa;
     }
-    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, var(--navy) 0%, #0d1a36 100%); }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
+    main {
+      width: min(90vw, 640px);
+      padding: 2.5rem;
+      background: #fff;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
     }
-    .hero-inner {
-      max-width: var(--max-w); width: 100%; margin: 0 auto;
-      padding: 5rem 2rem; position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.4;
     }
-    .hero-text { min-width: 0; }
-    .hero-tag { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; font-family: var(--font-mono); }
-    .hero-univ { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; letter-spacing: 0.04em; }
-    .hero-title { font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
-    .hero-title em { font-style: italic; color: rgba(255,255,255,0.55); }
-    .hero-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.45); margin-bottom: 2.5rem; max-width: 560px; line-height: 1.75; font-style: italic; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    /* slideshow */
-    .hero-slideshow { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
-    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
-    .hero-slide.active { opacity: 1; }
-    .hero-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
-    .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.3s, width 0.3s; border: none; padding: 0; }
-    .hero-dot.active { background: #fff; width: 22px; border-radius: 4px; }
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-slideshow { aspect-ratio: 16/9; }
+    p {
+      margin: 0.75rem 0;
     }
-    /* scroll indicator */
-    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; color: rgba(255,255,255,0.25); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; z-index: 1; }
-    .scroll-hint::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent); }
+    a {
+      color: #064f7a;
+      font-weight: 700;
+      word-break: break-all;
+    }
   </style>
 </head>
-<body class="lang-ja">
-
-<!-- ── NAV ── -->
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <span data-ja>社会システム計画学研究室</span>
-      <span data-en>Lab. for Social Systems Analysis</span>
-      <small>Lab. for Social Systems Analysis</small>
-    </a>
-        <div class="nav-links">
-      <a href="index.html"><span data-ja>ホーム</span><span data-en>Home</span></a>
-      <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
-      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
-      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
-      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
-      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
-      <a href="portal.html"><span data-ja>ポータル</span><span data-en>Portal</span></a>
-    </div>
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="lang-toggle">
-        <button data-lang="ja" class="active">JP</button>
-        <button data-lang="en">EN</button>
-      </div>
-      <button class="nav-hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
-    <p class="hero-tag">Lab. for Social Systems Analysis</p>
-    <p class="hero-univ">
-      <span data-ja>琉球大学 工学部 工学科 社会基盤デザインコース</span>
-      <span data-en>Course of Social Infrastructure Design, Dept. of Engineering, University of the Ryukyus</span>
-    </p>
-    <h1 class="hero-title">
-      <span data-ja>社会システム<br>計画学研究室</span>
-      <span data-en>Lab. for Social Systems<br><em>Analysis</em></span>
-    </h1>
-    <p class="hero-subtitle">
-      <span data-ja>琉球大学 工学部 社会システム計画学研究室のHPへようこそ！</span>
-      <span data-en>Welcome to the Lab. for Social Systems Analysis, Faculty of Engineering, University of the Ryukyus!</span>
-    </p>
-    <div class="hero-cta">
-      <a href="research.html" class="btn btn-primary">
-        <span data-ja>研究テーマ</span><span data-en>Research Themes</span>
-      </a>
-      <a href="#access" class="btn btn-outline-light">
-        <span data-ja>お問い合わせ</span><span data-en>Contact Us</span>
-      </a>
-    </div>
-    </div>
-    <div class="hero-slideshow" id="heroSlideshow">
-      <div class="hero-slide active"><img src="images/hero/slide01.jpg" alt="石垣島 川平湾" /></div>
-      <div class="hero-slide"><img src="images/hero/slide02.jpg" alt="やんばるの吊り橋" /></div>
-      <div class="hero-slide"><img src="images/hero/slide03.jpg" alt="海岸の岩場" /></div>
-      <div class="hero-dots" id="heroDots"></div>
-    </div>
-  </div>
-  <div class="scroll-hint">scroll</div>
-</section>
-
-<!-- ── NEWS (最新5件) ── -->
-<section id="news" style="background:var(--bg-white);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">News &amp; Updates</p>
-      <h2 class="section-title">
-        <span data-ja>お知らせ</span>
-        <span data-en>Latest News</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-    <div class="news-list">
-      <div class="news-item">
-        <div class="news-date">2026 — 05 — 31</div>
-        <div class="news-text">
-          <span class="news-badge badge-info">Info</span>
-          <a href="news/20260531.html" style="color:var(--navy-mid);border-bottom:1px solid var(--border);">
-            <span data-ja>研究室HPを開設しました！</span>
-            <span data-en>Our Lab Website is Now Open!</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="news-more" style="margin-top:1.8rem;">
-      <a href="news.html" class="btn btn-outline-dark btn-sm">
-        <span data-ja>お知らせ一覧へ →</span>
-        <span data-en>View all news →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── STUDENT LIFE (最新5件) ── -->
-<section id="student-life" style="background:var(--bg);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Student Life</p>
-      <h2 class="section-title">
-        <span data-ja>学生生活</span>
-        <span data-en>Student Life</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;">
-      <!-- 最新の学生生活記事をここに表示（最大5件） -->
-      <div style="grid-column:1/-1;padding:1.5rem 0;font-size:0.9rem;color:var(--text-muted);font-family:var(--font-mono);">
-        <span data-ja>現在準備中です。</span><span data-en>Coming soon.</span>
-      </div>
-    </div>
-    <div class="news-more" style="margin-top:1.8rem;">
-      <a href="student-life.html" class="btn btn-outline-dark btn-sm">
-        <span data-ja>学生生活一覧へ →</span>
-        <span data-en>View all →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── ACCESS ── -->
-<section id="access" style="background:var(--bg-white);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Access &amp; Contact</p>
-      <h2 class="section-title">
-        <span data-ja>アクセス・連絡先</span>
-        <span data-en>Access &amp; Contact</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-    <div class="access-grid">
-      <div class="map-wrap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.2621255055424!2d127.76328067578882!3d26.253154788122824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e56ce299633afb%3A0x60af8881df5b89c3!2z55CJ55CD5aSn5a2m5Zyw5Z-f5Ym155Sf57eP5ZCI56CU56m25qOf!5e0!3m2!1sja!2sjp!4v1780130522802!5m2!1sja!2sjp" width="600" height="450" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="access-info">
-        <h3>
-          <span data-ja>社会システム計画学研究室</span>
-          <span data-en>Lab. for Social Systems Analysis</span>
-        </h3>
-        <table class="access-table">
-          <tr>
-            <td><span data-ja>所属</span><span data-en>Dept.</span></td>
-            <td>
-              <span data-ja>琉球大学 工学部 工学科 社会基盤デザインコース</span>
-              <span data-en>Course of Social Infrastructure Design, Dept. of Engineering, University of the Ryukyus</span>
-            </td>
-          </tr>
-          <tr>
-            <td><span data-ja>住所</span><span data-en>Address</span></td>
-            <td>
-              <span data-ja>〒903-0213 沖縄県中頭郡西原町千原1番地</span>
-              <span data-en>1 Senbaru, Nishihara, Nakagami, Okinawa 903-0213, Japan</span>
-            </td>
-          </tr>
-          <tr>
-            <td>TEL</td>
-            <td>
-              <svg style="display:inline;vertical-align:-3px;margin-right:5px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>098-895-8653（神谷）<br>
-              <svg style="display:inline;vertical-align:-3px;margin-right:5px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>098-895-8656（上地）
-            </td>
-          </tr>
-          <tr>
-            <td>E-mail</td>
-            <td>
-              <svg style="display:inline;vertical-align:-3px;margin-right:5px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>d-kamiya[at]cs.u-ryukyu.ac.jp（神谷）<br>
-              <svg style="display:inline;vertical-align:-3px;margin-right:5px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>uechi_fn9s[at]cs.u-ryukyu.ac.jp（上地）
-              <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">
-                <span data-ja>※ [at] を @ に変えて連絡してください</span>
-                <span data-en>※ Please replace [at] with @ when contacting us</span>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td><span data-ja>居室</span><span data-en>Room</span></td>
-            <td>
-              <span data-ja>
-                地域創生総合研究棟 6F 609B（神谷）<br>
-                工学部2号館 5F 505室（上地）
-              </span>
-              <span data-en>
-                Regional Innovation Bldg. 6F 609B (Kamiya)<br>
-                Engineering Bldg. 2, 5F Room 505 (Uechi)
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td><span data-ja>交通</span><span data-en>Access</span></td>
-            <td>
-              <span data-ja>ゆいレール「てだこ浦西駅」よりバスで約25分（琉大北口駐車場）／<a href="https://www.u-ryukyu.ac.jp/access/" target="_blank" style="color:var(--navy-mid);border-bottom:1px solid var(--border);">アクセス詳細 ↗</a></span>
-              <span data-en>About 25 min by bus from Tedako-Uranishi Station (Yui Rail) / <a href="https://www.u-ryukyu.ac.jp/access/" target="_blank" style="color:var(--navy-mid);border-bottom:1px solid var(--border);">Access details ↗</a></span>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── LINKS ── -->
-<section id="links" style="background:var(--bg-white);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Links</p>
-      <h2 class="section-title">
-        <span data-ja>リンク</span>
-        <span data-en>Links</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-    <div class="links-list">
-      <div class="link-row">
-        <span class="link-label">
-          <span data-ja>琉球大学</span><span data-en>University of the Ryukyus</span>
-        </span>
-        <a href="https://www.u-ryukyu.ac.jp/" target="_blank" class="link-url">https://www.u-ryukyu.ac.jp/ ↗</a>
-      </div>
-      <div class="link-row">
-        <span class="link-label">
-          <span data-ja>琉球大学 工学部</span><span data-en>Faculty of Engineering, Univ. of the Ryukyus</span>
-        </span>
-        <a href="https://www.tec.u-ryukyu.ac.jp/" target="_blank" class="link-url">https://www.tec.u-ryukyu.ac.jp/ ↗</a>
-      </div>
-      <div class="link-row">
-        <span class="link-label">
-          <span data-ja>琉球大学 工学部 社会基盤デザインコース</span><span data-en>Course of Social Infrastructure Design</span>
-        </span>
-        <div>
-          <a href="https://civil.tec.u-ryukyu.ac.jp/link/" target="_blank" class="link-url">https://civil.tec.u-ryukyu.ac.jp/link/ ↗</a>
-          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">※令和9年4月1日より，「環境都市工学コース」にコース名称が変更となります</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <span data-ja>社会システム計画学研究室 © 2026</span>
-      <span data-en>Lab. for Social Systems Analysis © 2026</span>
-    </div>
-        <div class="footer-links">
-      <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
-      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
-      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
-      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
-      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
-      <a href="portal.html">Portal</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-// ── ヒーロースライドショー ──
-(function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dotsContainer = document.getElementById('heroDots');
-  if (!slides.length || !dotsContainer) return;
-  let current = 0;
-  let timer;
-
-  // ドット生成
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `スライド ${i + 1}`);
-    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
-    dotsContainer.appendChild(dot);
-  });
-  const dots = dotsContainer.querySelectorAll('.hero-dot');
-
-  function goTo(idx) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = idx;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-  function next() { goTo((current + 1) % slides.length); }
-  function resetTimer() { clearInterval(timer); timer = setInterval(next, 4500); }
-  resetTimer();
-})();
-</script>
+<body>
+  <main>
+    <h1>研究室ホームページは移転しました</h1>
+    <p>新しい研究室ホームページへ自動転送します。</p>
+    <p>自動転送されない場合は、以下のリンクから新しいサイトをご覧ください。</p>
+    <p><a href="https://planning.skr.u-ryukyu.ac.jp/">https://planning.skr.u-ryukyu.ac.jp/</a></p>
+  </main>
 </body>
 </html>

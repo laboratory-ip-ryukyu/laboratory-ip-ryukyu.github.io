@@ -1,294 +1,51 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="KcrFSB6cH9oSJOEGwliKE3jS2wqEeajN2zLE-L2whGw" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>研究室について | 琉球大学 社会システム計画学研究室</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="0; url=https://planning.skr.u-ryukyu.ac.jp/about.html" />
+  <title>研究室について - 移転のお知らせ</title>
+  <link rel="canonical" href="https://planning.skr.u-ryukyu.ac.jp/about.html" />
   <style>
-    .about-lead {
-      font-size: 1.15rem;
-      line-height: 2;
-      color: var(--text-mid);
-      max-width: 780px;
-      margin-bottom: 3rem;
-    }
-    .about-lead em {
-      font-style: italic;
-      color: var(--navy);
-    }
-    .vision-grid {
+    body {
+      margin: 0;
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4rem;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
+      color: #1f2933;
+      background: #f7f8fa;
     }
-    .vision-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--accent);
-      padding: 1.8rem 2rem;
+    main {
+      width: min(90vw, 640px);
+      padding: 2.5rem;
+      background: #fff;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
     }
-    .vision-card h3 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.8rem;
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.4;
     }
-    .vision-card p {
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      line-height: 1.9;
+    p {
+      margin: 0.75rem 0;
     }
-    .message-block {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: start;
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .message-block:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .message-who { position: sticky; top: calc(var(--nav-h) + 2rem); }
-    .message-avatar {
-      width: 80px; height: 80px; border-radius: 50%;
-      background: var(--navy-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: 500; color: var(--navy);
-      border: 2px solid var(--border);
-      margin-bottom: 0.8rem;
-    }
-    .message-name { font-size: 1rem; font-weight: 500; color: var(--navy); }
-    .message-role { font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: 0.06em; margin-top: 0.2rem; }
-    .message-body p {
-      font-size: 0.95rem;
-      color: var(--text-mid);
-      line-height: 2;
-      margin-bottom: 1.2rem;
-    }
-    .message-body p:last-child { margin-bottom: 0; }
-    .join-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    @media (max-width: 700px) { .join-grid { grid-template-columns: 1fr; } }
-    .join-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      padding: 1.8rem 2rem;
-      border-radius: var(--radius);
-    }
-    .join-card h3 {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .join-card p, .join-card li {
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      line-height: 1.9;
-    }
-    .join-card ul { padding-left: 1.2rem; }
-    .join-card li { margin-bottom: 0.3rem; }
-    .join-cta {
-      margin-top: 2.5rem;
-      padding: 2rem 2.5rem;
-      background: var(--navy);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .join-cta p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem;
-    }
-    .join-cta strong { color: #fff; display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
-    @media (max-width: 768px) {
-      .message-block { grid-template-columns: 1fr; gap: 1.5rem; }
-      .message-who { position: static; }
+    a {
+      color: #064f7a;
+      font-weight: 700;
+      word-break: break-all;
     }
   </style>
 </head>
-<body class="lang-ja">
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <span data-ja>社会システム計画学研究室</span>
-      <span data-en>Lab. for Social Systems Analysis</span>
-      <small>Lab. for Social Systems Analysis</small>
-    </a>
-    <div class="nav-links">
-      <a href="index.html"><span data-ja>ホーム</span><span data-en>Home</span></a>
-      <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
-      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
-      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
-      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
-      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
-      <a href="portal.html"><span data-ja>ポータル</span><span data-en>Portal</span></a>
-    </div>
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="lang-toggle"><button data-lang="ja" class="active">JP</button><button data-lang="en">EN</button></div>
-      <button class="nav-hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-<div class="page-header">
-  <div class="page-header-grid"></div>
-  <div class="page-header-inner">
-    <p class="page-header-tag">About the Laboratory</p>
-    <h1>
-      <span data-ja>研究室について</span>
-      <span data-en>About <em>Our Lab</em></span>
-    </h1>
-  </div>
-</div>
-
-<!-- ── 研究室の紹介 ── -->
-<section style="background:var(--bg-white);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">About the Lab</p>
-      <h2 class="section-title">
-        <span data-ja>研究室の紹介</span>
-        <span data-en>About Our Lab</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-    <div style="max-width:1000px;">
-      <p style="font-size:1rem;line-height:2;color:var(--text-mid);margin-bottom:1.2rem;">
-        <span data-ja>琉球大学 工学部 社会システム計画学研究室のHPへようこそ！</span>
-        <span data-en>Welcome to the Lab. for Social Systems Analysis, Faculty of Engineering, University of the Ryukyus!</span>
-      </p>
-      <p style="font-size:1rem;line-height:2;color:var(--text-mid);margin-bottom:1.2rem;">
-        <span data-ja>当研究室は人流データ・社会統計資料・3次元点群データなどを活用し，「観光」「交通」「防災」「環境」に関する社会課題の解決に向けた研究を行っています．</span>
-        <span data-en>Our lab conducts research on social issues related to "Tourism," "Transportation," "Disaster Prevention," and "Environment" using human flow data, social statistics, and 3D point cloud data.</span>
-      </p>
-      <p style="font-size:1rem;line-height:2;color:var(--text-mid);">
-        <span data-ja>フィールドワークとデータ分析を組み合わせながら，地域社会の実課題に向き合い，持続可能な社会の実現に向けた取り組みを行なっています．</span>
-        <span data-en>We combine fieldwork and data analysis to address real-world challenges and contribute to a sustainable society.</span>
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- ── 学生生活 ── -->
-<section style="background:var(--bg);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Student Life</p>
-      <h2 class="section-title">
-        <span data-ja>学生生活</span>
-        <span data-en>Student Life</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;">
-
-      <!-- 最新の学生生活記事をここに表示（最大5件）。記事が追加されたら反映します。 -->
-      <div style="grid-column:1/-1;padding:2rem 0;font-size:0.9rem;color:var(--text-muted);font-family:var(--font-mono);">
-        <span data-ja>現在準備中です。</span>
-        <span data-en>Coming soon.</span>
-      </div>
-
-    </div>
-
-    <div style="margin-top:1.8rem;">
-      <a href="student-life.html" class="btn btn-outline-dark btn-sm">
-        <span data-ja>学生生活一覧へ →</span>
-        <span data-en>View all →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── 研究室配属を希望する学生へ ── -->
-<section style="background:var(--bg-white);">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">For Prospective Students</p>
-      <h2 class="section-title">
-        <span data-ja>研究室配属を希望する学生へ</span>
-        <span data-en>For Prospective Students</span>
-      </h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="join-grid">
-      <div class="join-card">
-        <h3>
-          <span data-ja>📚 研究室の特徴</span>
-          <span data-en>📚 Lab Features</span>
-        </h3>
-        <ul>
-          <li><span data-ja>週1回の進捗報告ゼミ（全員）</span><span data-en>Weekly progress seminars (all members)</span></li>
-          <li><span data-ja>学会発表を積極的にサポート</span><span data-en>Active support for conference presentations</span></li>
-          <li><span data-ja>行政・企業・他大学との共同研究あり</span><span data-en>Joint research with government, companies, and other universities</span></li>
-        </ul>
-      </div>
-
-      <div class="join-card">
-        <h3>
-          <span data-ja>💬 Q &amp; A</span>
-          <span data-en>💬 Q &amp; A</span>
-        </h3>
-        <p style="margin-bottom:1rem;">
-          <span data-ja><strong>Q. 研究テーマの決め方</strong><br>A. 教員と相談の上，学生の皆さんの興味関心に合わせて設定していきます．</span>
-          <span data-en><strong>Q. How are research themes decided?</strong><br>A. Themes are set based on each student's interests, in consultation with faculty.</span>
-        </p>
-        <p>
-          <span data-ja><strong>Q. プログラミング初心者でも大丈夫ですか？</strong><br>A. 配属後に一から始める学生がほとんどなので問題ありません．</span>
-          <span data-en><strong>Q. Is it okay if I'm a programming beginner?</strong><br>A. No problem — most students start from scratch after joining.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="join-cta">
-      <div>
-        <strong><span data-ja>配属・見学について</span><span data-en>Joining & Lab Visits</span></strong>
-        <p><span data-ja>見学・質問はいつでも歓迎しています．</span><span data-en>Lab visits and questions are always welcome.</span></p>
-      </div>
-      <a href="index.html#access" class="btn btn-outline-light">
-        <span data-ja>連絡先を見る →</span><span data-en>View Contact →</span>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo"><span data-ja>社会システム計画学研究室 © 2026</span><span data-en>Lab. for Social Systems Analysis © 2026</span></div>
-    <div class="footer-links">
-      <a href="about.html"><span data-ja>研究室について</span><span data-en>About</span></a>
-      <a href="research.html"><span data-ja>研究</span><span data-en>Research</span></a>
-      <a href="members.html"><span data-ja>メンバー</span><span data-en>Members</span></a>
-      <a href="publications.html"><span data-ja>業績</span><span data-en>Publications</span></a>
-      <a href="news.html"><span data-ja>お知らせ</span><span data-en>News</span></a>
-      <a href="portal.html">Portal</a>
-    </div>
-  </div>
-</footer>
-<script src="js/main.js"></script>
+<body>
+  <main>
+    <h1>研究室ホームページは移転しました</h1>
+    <p>新しい研究室ホームページへ自動転送します。</p>
+    <p>自動転送されない場合は、以下のリンクから新しいサイトをご覧ください。</p>
+    <p><a href="https://planning.skr.u-ryukyu.ac.jp/about.html">https://planning.skr.u-ryukyu.ac.jp/about.html</a></p>
+  </main>
 </body>
 </html>

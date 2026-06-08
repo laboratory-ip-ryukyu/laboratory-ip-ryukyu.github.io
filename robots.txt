@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://laboratory-ip-ryukyu.github.io/sitemap.xml
+Sitemap: https://planning.skr.u-ryukyu.ac.jp/sitemap.xml
